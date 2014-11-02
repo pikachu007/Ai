@@ -16,6 +16,7 @@ public class Ai {
      */
     public static void main(String[] args) {
         // TODO code application logic her
+        System.out.print("Hola");
     }
     
 }
