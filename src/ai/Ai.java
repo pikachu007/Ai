@@ -30,12 +30,13 @@ public class Ai {
         
         KeyListener key= new KeyListener();
         MouseListener mouse = new MouseListener();
-
+        WheelListener wheel= new WheelListener();
+        
         //Add the appropriate listeners for the example object.
         GlobalScreen.getInstance().addNativeKeyListener(key);
         GlobalScreen.getInstance().addNativeMouseListener(mouse);
         GlobalScreen.getInstance().addNativeMouseMotionListener(mouse);
-        
+        GlobalScreen.getInstance().addNativeMouseWheelListener(wheel);
     }
 
 }

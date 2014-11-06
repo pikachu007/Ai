@@ -9,27 +9,26 @@ package ai;
  *
  * @author qbex
  */
-import org.jnativehook.GlobalScreen;
-import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
-public class KeyListener implements NativeKeyListener{
+public class KeyListener implements NativeKeyListener {
+
     public String e;
-    
+
     @Override
     public void nativeKeyPressed(NativeKeyEvent nke) {
-        e=nke.getKeyText(nke.getKeyCode());
+        e = nke.getKeyText(nke.getKeyCode());
     }
 
     @Override
     public void nativeKeyReleased(NativeKeyEvent nke) {
-        e=nke.getKeyText(nke.getKeyCode());
+        e = nke.getKeyText(nke.getKeyCode());
     }
 
     @Override
     public void nativeKeyTyped(NativeKeyEvent nke) {
-        e=nke.getKeyText(nke.getKeyCode());
+        e = nke.getKeyText(nke.getKeyCode());
     }
-    
+
 }
