@@ -6,6 +6,7 @@
 package ai;
 
 import org.jnativehook.GlobalScreen;
+import org.jnativehook.NativeHookException;
 
 /**
  *
@@ -17,8 +18,24 @@ public class Ai {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic her
-        GlobalScreen.getInstance().addNativeKeyListener(new KeyListener());
+
+        try {
+            GlobalScreen.registerNativeHook();
+        } catch (NativeHookException ex) {
+            System.err.println("There was a problem registering the native hook.");
+            System.err.println(ex.getMessage());
+
+            System.exit(1);
+        }
+        
+        KeyListener key= new KeyListener();
+        MouseListener mouse = new MouseListener();
+
+        //Add the appropriate listeners for the example object.
+        GlobalScreen.getInstance().addNativeKeyListener(key);
+        GlobalScreen.getInstance().addNativeMouseListener(mouse);
+        GlobalScreen.getInstance().addNativeMouseMotionListener(mouse);
+        
     }
-    
+
 }
