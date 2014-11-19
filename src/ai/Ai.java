@@ -27,8 +27,8 @@ public class Ai {
 
             System.exit(1);
         }
-        
-        KeyListener key= new KeyListener();
+        //TODO corregir
+        KeyListener key= new KeyListener(args);
         MouseListener mouse = new MouseListener();
         WheelListener wheel= new WheelListener();
         

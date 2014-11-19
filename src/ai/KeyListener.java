@@ -9,13 +9,18 @@ package ai;
  *
  * @author qbex
  */
+import java.util.EventObject;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
-public class KeyListener implements NativeKeyListener {
+public class KeyListener extends EventObject implements NativeKeyListener {
 
     public String e;
 
+    public KeyListener(Object source) {
+        super(source);
+    }
+    
     @Override
     public void nativeKeyPressed(NativeKeyEvent nke) {
         e = nke.getKeyText(nke.getKeyCode());
