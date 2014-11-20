@@ -14,11 +14,14 @@ import org.jnativehook.NativeHookException;
  */
 public class Ai {
 
-    /**
+    /**asddsas
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
+        ListenerComponent key =new ListenerComponent();
+        key.addActionListener(new MovesCapture());
+/*
         try {
             GlobalScreen.registerNativeHook();
         } catch (NativeHookException ex) {
@@ -32,11 +35,14 @@ public class Ai {
         MouseListener mouse = new MouseListener();
         WheelListener wheel= new WheelListener();
         
-        //Add the appropriate listeners for the example object.
+        //Add the appropriate listeners for the object.
         GlobalScreen.getInstance().addNativeKeyListener(key);
         GlobalScreen.getInstance().addNativeMouseListener(mouse);
         GlobalScreen.getInstance().addNativeMouseMotionListener(mouse);
         GlobalScreen.getInstance().addNativeMouseWheelListener(wheel);
+        */
+        
+        
     }
 
 }

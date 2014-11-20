@@ -9,12 +9,11 @@ package ai;
  *
  * @author qbex
  */
-public class MovesCapture implements ActionListener{
+public class MovesCapture implements ActionListener {
 
     @Override
     public void actionCapture(KeyListener kl) {
         System.out.print(kl.e);
     }
-    
-    
+
 }

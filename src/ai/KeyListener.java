@@ -20,7 +20,7 @@ public class KeyListener extends EventObject implements NativeKeyListener {
     public KeyListener(Object source) {
         super(source);
     }
-    
+
     @Override
     public void nativeKeyPressed(NativeKeyEvent nke) {
         e = nke.getKeyText(nke.getKeyCode());

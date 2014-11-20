@@ -11,7 +11,8 @@ import java.util.EventListener;
  *
  * @author qbex
  */
-public interface ActionListener extends EventListener{
-    void actionCapture (KeyListener kl);
-    
+public interface ActionListener extends EventListener {
+
+    void actionCapture(KeyListener kl);
+
 }
