@@ -5,15 +5,27 @@
  */
 package ai;
 
+import org.jnativehook.GlobalScreen;
+import org.jnativehook.NativeHookException;
+
 /**
  *
  * @author qbex
  */
-public class MovesCapture implements ActionListener {
+public class MovesCapture {
 
-    @Override
-    public void actionCapture(KeyListener kl) {
-        System.out.print(kl.e);
+    public MovesCapture(){
+        try {
+            GlobalScreen.registerNativeHook();
+        } catch (NativeHookException ex) {
+            System.err.println("There was a problem registering the native hook.");
+            System.err.println(ex.getMessage());
+
+            System.exit(1);
+        }
+
+        ActionListener key = new ActionListener();
+
+        GlobalScreen.getInstance().addNativeKeyListener(key);
     }
-
 }
