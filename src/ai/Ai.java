@@ -15,14 +15,18 @@ import org.jnativehook.NativeHookException;
 public class Ai {
 
     /**
-     * asddsas
+     *
      *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
 
-        MovesCapture movesCapture = new MovesCapture();
-        
+        ActionCapture ac = new ActionCapture();
+        ac.start();
+        ActionListener al = new ActionListener();
+        ac.configure(al);
+        ac.stop(al.actions);
+
     }
 
 }

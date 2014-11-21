@@ -5,6 +5,8 @@
  */
 package ai;
 
+import java.util.List;
+import jdk.nashorn.internal.runtime.Source;
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 
@@ -12,20 +14,25 @@ import org.jnativehook.NativeHookException;
  *
  * @author qbex
  */
-public class MovesCapture {
+public class ActionCapture {
 
-    public MovesCapture(){
+    public void configure(ActionListener actionListener) {
+        GlobalScreen.getInstance().addNativeKeyListener(actionListener);
+    }
+
+    public void start() {
         try {
             GlobalScreen.registerNativeHook();
         } catch (NativeHookException ex) {
-            System.err.println("There was a problem registering the native hook.");
             System.err.println(ex.getMessage());
-
             System.exit(1);
         }
 
-        ActionListener key = new ActionListener();
-
-        GlobalScreen.getInstance().addNativeKeyListener(key);
     }
+
+    void stop(List<String> actions) {
+        
+        
+    }
+
 }
