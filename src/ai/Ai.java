@@ -21,11 +21,16 @@ public class Ai {
      */
     public static void main(String[] args) {
 
-        ActionCapture ac = new ActionCapture();
-        ac.start();
-        ActionListener al = new ActionListener();
-        ac.configure(al);
-        ac.stop(al.actions);
+        try {
+            GlobalScreen.registerNativeHook();
+        } catch (NativeHookException ex) {
+            System.err.println("There was a problem registering the native hook.");
+            System.err.println(ex.getMessage());
+
+            System.exit(1);
+        }
+
+        GlobalScreen.addNativeKeyListener(new ActionListener());
 
     }
 
