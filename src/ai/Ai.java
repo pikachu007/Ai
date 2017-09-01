@@ -7,6 +7,7 @@ package ai;
 
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
+import org.jnativehook.mouse.NativeMouseWheelListener;
 
 /**
  *
@@ -24,14 +25,18 @@ public class Ai {
         try {
             GlobalScreen.registerNativeHook();
         } catch (NativeHookException ex) {
-            System.err.println("There was a problem registering the native hook.");
-            System.err.println(ex.getMessage());
+            System.out.println("There was a problem registering the native hook.");
+            System.out.println(ex.getMessage());
 
             System.exit(1);
         }
 
-        GlobalScreen.addNativeKeyListener(new KeyListener());
+        ListenerAdapter listener = new ListenerAdapter();
 
+        GlobalScreen.addNativeKeyListener(listener);
+        GlobalScreen.addNativeMouseListener(listener);
+        GlobalScreen.addNativeMouseMotionListener(listener);
+        GlobalScreen.addNativeMouseWheelListener((NativeMouseWheelListener) listener);
     }
 
 }
