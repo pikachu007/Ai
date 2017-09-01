@@ -14,15 +14,15 @@ import java.util.Date;
 public class ActionEvent {
 
     private int id;
-    private String date;
+    private String time;
     private String device;
     private String action;
     private String window;
     private String control;
     
-    public ActionEvent(int id,String date, String device, String action, String window, String control) {
+    public ActionEvent(int id,String time, String device, String action, String window, String control) {
         this.id = id;
-        this.date = date;
+        this.time = time;
         this.device = device;
         this.action = action;
         this.window = window;
@@ -38,12 +38,12 @@ public class ActionEvent {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
+    public String getTime() {
+        return time;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getDevice() {
