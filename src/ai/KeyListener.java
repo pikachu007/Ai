@@ -16,8 +16,10 @@ import org.jnativehook.keyboard.NativeKeyListener;
  *
  * @author qbex
  */
-public class ActionListener implements NativeKeyListener {
-
+public class KeyListener implements NativeKeyListener {
+    long startTime;
+    long endTime;
+            
     @Override
     public void nativeKeyTyped(NativeKeyEvent nke) {
         FileManager fm = new FileManager();
@@ -26,14 +28,20 @@ public class ActionListener implements NativeKeyListener {
 
     @Override
     public void nativeKeyPressed(NativeKeyEvent nke) {
+        this.endTime=System.nanoTime();
+        long t=this.endTime-this.startTime;
         FileManager fm = new FileManager();
-        fm.write("Key Pressed: " + nke.getKeyText(nke.getKeyCode()));
+        fm.write("Key Pressed: " +t+"," + nke.getKeyText(nke.getKeyCode()));
+        this.startTime = System.nanoTime();
     }
 
     @Override
     public void nativeKeyReleased(NativeKeyEvent nke) {
+        this.endTime=System.nanoTime();
+        long t=this.endTime-this.startTime;
         FileManager fm = new FileManager();
-        fm.write("Key Released: " + nke.getKeyText(nke.getKeyCode()));
+        fm.write("Key Released: " +t+","+ nke.getKeyText(nke.getKeyCode()));
+        this.startTime = System.nanoTime();
     }
 
 }
