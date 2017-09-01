@@ -5,17 +5,9 @@
  */
 package ai;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -28,7 +20,6 @@ public class FileManager {
         try {
             fichero = new FileWriter("prueba.txt",true);
             PrintWriter pw = new PrintWriter(fichero);
-
             pw.println(linea);
             fichero.close();
 

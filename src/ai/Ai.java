@@ -30,7 +30,7 @@ public class Ai {
             System.exit(1);
         }
 
-        GlobalScreen.addNativeKeyListener(new ActionListener());
+        GlobalScreen.addNativeKeyListener(new KeyListener());
 
     }
 
