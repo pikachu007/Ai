@@ -21,15 +21,24 @@ public class ActionEvent {
     private String window;
     private String control;
 
-    public ActionEvent(int id, String time, String device, String action, String window, String control) {
+    public ActionEvent(int id, String cMouse, String time, String device, String action, String window, String control) {
         this.id = id;
         this.time = time;
         this.device = device;
         this.action = action;
         this.window = window;
         this.control = control;
+        this.cMouse = cMouse;
+    }
+    
+    public String getcMouse() {
+        return cMouse;
     }
 
+    public void setcMouse(String cMouse) {
+        this.cMouse = cMouse;
+    }
+    
     public int getId() {
         return id;
     }

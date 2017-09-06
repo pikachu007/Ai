@@ -39,7 +39,6 @@ public class Ai {
         GlobalScreen.addNativeMouseMotionListener(listener);
         GlobalScreen.addNativeMouseWheelListener((NativeMouseWheelListener) listener);
 
-        
     }
 
 }

