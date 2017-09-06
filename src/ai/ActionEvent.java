@@ -17,10 +17,11 @@ public class ActionEvent {
     private String time;
     private String device;
     private String action;
+    private String cMouse;
     private String window;
     private String control;
-    
-    public ActionEvent(int id,String time, String device, String action, String window, String control) {
+
+    public ActionEvent(int id, String time, String device, String action, String window, String control) {
         this.id = id;
         this.time = time;
         this.device = device;
@@ -28,7 +29,6 @@ public class ActionEvent {
         this.window = window;
         this.control = control;
     }
-    
 
     public int getId() {
         return id;
@@ -77,6 +77,5 @@ public class ActionEvent {
     public void setControl(String control) {
         this.control = control;
     }
-    
-    
+
 }

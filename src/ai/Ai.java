@@ -7,6 +7,7 @@ package ai;
 
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
+import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.mouse.NativeMouseWheelListener;
 
 /**
@@ -37,6 +38,8 @@ public class Ai {
         GlobalScreen.addNativeMouseListener(listener);
         GlobalScreen.addNativeMouseMotionListener(listener);
         GlobalScreen.addNativeMouseWheelListener((NativeMouseWheelListener) listener);
+
+        
     }
 
 }
