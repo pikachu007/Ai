@@ -5,42 +5,38 @@
  */
 package ai;
 
-import java.util.Date;
-
 /**
  *
  * @author ricardo
  */
-public class ActionEvent {
+public class Action {
 
     private int id;
-    private String time;
     private String device;
     private String action;
-    private String cMouse;
-    private String window;
-    private String control;
+    private String time;
+    private String placement;
+    
 
-    public ActionEvent(int id, String cMouse, String time, String device, String action, String window, String control) {
+    public Action(int id, String time, String device, String action, String placement) {
         this.id = id;
         this.time = time;
         this.device = device;
         this.action = action;
-        this.window = window;
-        this.control = control;
-        this.cMouse = cMouse;
+        this.placement=placement;
     }
     
-    public String getcMouse() {
-        return cMouse;
-    }
-
-    public void setcMouse(String cMouse) {
-        this.cMouse = cMouse;
-    }
     
     public int getId() {
         return id;
+    }
+
+    public String getPlacement() {
+        return placement;
+    }
+
+    public void setPlacement(String placement) {
+        this.placement = placement;
     }
 
     public void setId(int id) {
@@ -70,21 +66,4 @@ public class ActionEvent {
     public void setAction(String action) {
         this.action = action;
     }
-
-    public String getWindow() {
-        return window;
-    }
-
-    public void setWindow(String window) {
-        this.window = window;
-    }
-
-    public String getControl() {
-        return control;
-    }
-
-    public void setControl(String control) {
-        this.control = control;
-    }
-
 }
